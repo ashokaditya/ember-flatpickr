@@ -2,7 +2,7 @@
 
 <a href="https://shipshape.io/"><img src="http://i.imgur.com/KVqNjgO.png" alt="Ship Shape" width="100" height="100"/></a>
 
-**[ember-flatpickr is built and maintained by Ship Shape. Contact us for Ember.js consulting, development, and training for your project](https://shipshape.io/ember-consulting)**.
+**[ember-flatpickr is built and maintained by Ship Shape. Contact us for Ember.js consulting, development, and training for your project](https://shipshape.io/ember-consulting/)**.
 
 [![npm version](https://badge.fury.io/js/ember-flatpickr.svg)](http://badge.fury.io/js/ember-flatpickr)
 [![npm](https://img.shields.io/npm/dm/ember-flatpickr.svg)]()
@@ -10,8 +10,6 @@
 [![Build Status](https://travis-ci.org/shipshapecode/ember-flatpickr.svg?branch=master)](https://travis-ci.org/shipshapecode/ember-flatpickr)
 [![Code Climate](https://codeclimate.com/github/shipshapecode/ember-flatpickr/badges/gpa.svg)](https://codeclimate.com/github/shipshapecode/ember-flatpickr)
 [![Test Coverage](https://codeclimate.com/github/shipshapecode/ember-flatpickr/badges/coverage.svg)](https://codeclimate.com/github/shipshapecode/ember-flatpickr/coverage)
-
-<a href="https://app.codesponsor.io/link/bnfiyuC9jfaRVvE6NRbanWqE/shipshapecode/ember-flatpickr" rel="nofollow"><img src="https://app.codesponsor.io/embed/bnfiyuC9jfaRVvE6NRbanWqE/shipshapecode/ember-flatpickr.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
 
 This is an Ember addon that wraps the date picker [flatpickr](http://chmln.github.io/flatpickr/). It uses ember-cli-node-assets to pull in flatpickr from npm.
 
@@ -173,6 +171,35 @@ If you need to interact directly with the flatpickr instance you have created in
 All options available to Flatpickr are available here.
 
 Please see the [flatpickr docs](https://chmln.github.io/flatpickr/) for a full list of options.
+
+## Test Helpers
+
+Ember-flatpickr ships with a few [test-helpers](addon-test-support/helpers.js) to make your test cases a little bit DRYer.
+
+#### For Acceptance Tests:
+Import `helpers.js` into `.../test/helpers/start-app.js` and call the default function in order to register your helpers. 
+```javascript
+// .../test/helpers/start-app.js
+
+import { run } from '@ember/runloop';
+import { merge } from '@ember/polyfills';
+import Application from '../../app';
+import config from '../../config/environment';
+import registerFlatpickrHelpers from 'ember-flatpickr/test-support/helpers';
+
+registerFlatpickrHelpers();
+
+export default function startApp(attrs) {
+  //...
+}
+```
+Once registered, the helpers can be called directly in your acceptance tests without having to import anything.
+
+#### For Integration Tests:
+Simply import the specific helpers you need at the top of your test file.
+```javascript
+import { setFlatpickrDate, isFlatpickrOpen } from 'ember-flatpickr/test-support/helpers';
+```
 
 ## Contributing
 

@@ -1,3 +1,12 @@
+# 2.3.0
+* Ember 3.0 and dep updates
+
+# 2.2.0
+* Add `closeFlatpickrDate` test helper
+
+# 2.1.1
+* Fix fastboot `flatpickr` undefined issue
+
 # 2.0.2
 * Use nextSibling to ensure we disabled the right input
 
